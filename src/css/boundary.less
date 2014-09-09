@@ -1,0 +1,78 @@
+@import "values";
+
+boundary-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  .spacer {
+    width: 20%;
+    display: block;
+    float: left;
+    height: 100%;
+
+    @media @mobile {
+      float: none;
+      display: none;
+    }
+  }
+
+  .container {
+    width: 80%;
+    height: 100%;
+    float: left;
+    display: block;
+
+    @media @mobile {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .color {
+    @worst: #F44;
+
+    float: left;
+    height: 100%;
+    position: relative;
+    border-right-width: 2px;
+    border-right-style: solid;
+
+    &::before {
+      color: darken(@worst, 50%);
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      font-size: 10px;
+      white-space: nowrap;
+
+      @media @mobile {
+        display: none;
+      }
+    }
+
+    &.at-10 {
+      border-color: lighten(@worst, 20%);
+      &::before {
+        content: "10 mg/dal";
+      }
+    }
+
+    &.at-25 {
+      border-color: lighten(@worst, 10%);
+      &::before {
+        content: "25 mg/dal";
+      }
+    }
+
+    &.at-60 {
+      border-color: @worst;
+      &::before {
+        content: "60 mg/dal";
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "s3": {
+    "stage": {
+      "bucket": "apps-stage.seattletimesdata.com",
+      "path": "yawning-foe"
+    },
+    "live": {
+      "bucket": "",
+      "path": ""
+    }
+  },
+  "title": "Lead Levels Graphic",
+  "description": "",
+  "url": "",
+  "slug": "",
+  "tags": [],
+  "sheets": []
+}
