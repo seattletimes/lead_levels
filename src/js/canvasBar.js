@@ -9,54 +9,57 @@ define([
         var canvas = element.find("canvas")[0];
         var context = canvas.getContext("2d");
 
+        var drawCircle = function(level, count) {
+          var range = scope.bounds.max - scope.bounds.min;
+          var projected = (level - scope.bounds.min) / range * canvas.width;
+          if (level >= 60) {
+            context.fillStyle = "rgba(220, 30, 0, .6)";
+          } else if (level >= 25) {
+            context.fillStyle = "rgba(180, 100, 40, .6)";
+          } else {
+            context.fillStyle = "rgba(130, 80, 0, .6)";
+          }
+          context.beginPath();
+          context.arc(projected, canvas.height / 2, count * 4, 0, Math.PI * 2);
+          context.fill();
+          context.stroke();
+        }
+
         var render = function() {
           canvas.height = canvas.offsetHeight;
           canvas.width = canvas.offsetWidth;
 
           var range = scope.bounds.max - scope.bounds.min;
-          var bounds = scope.data.bounds;
+          var levels = scope.data.bounds.byLevel;
 
-          //build the rectangle array
-          var rectangles = [];
-          if (bounds.min < 25) {
-            rectangles.push({
-              left: bounds.min,
-              right: bounds.max > 25 ? 25 : right,
-              fill: "rgba(167, 100, 34, 1)",
-              count: bounds.counts[0]
-            });
-          }
-          if (bounds.min < 60 && bounds.max > 25) {
-            rectangles.push({
-              left: bounds.min < 25 ? 25 : bounds.min,
-              right: bounds.max > 60 ? 60 : bounds.max,
-              fill: "rgba(222, 129, 25, 1)",
-              count: bounds.counts[1]
-            });
-          }
-          if (bounds.max > 60) {
-            rectangles.push({
-              left: bounds.min < 60 ? 60 : bounds.min,
-              right: bounds.max,
-              fill: "rgba(230, 80, 30, 1)",
-              count: bounds.counts[2]
-            });
+          context.strokeStyle = "white";
+          context.strokeWidth = 1;
+
+          for (var level in levels) {
+            var count = levels[level].length;
+            level = level * 1;
+            drawCircle(level, count);
           }
 
-          //render bar rects
-          rectangles.forEach(function(rect, i) {
-            var left = (rect.left - scope.bounds.min) / range * canvas.width;
-            var right = (rect.right - scope.bounds.min) / range * canvas.width - left;
-            context.fillStyle = rect.fill;
-            context.fillRect(left, 0, right, canvas.height);
-          });
+        };
 
-        }
+        element.on("mousemove click", function(e) {
+          render();
+          var bounding = canvas.getBoundingClientRect();
+          var x = e.clientX - bounding.x;
+          var range = scope.bounds.max - scope.bounds.min;
+          var unprojected = Math.round(x / canvas.width * range + scope.bounds.min);
+          var byLevel = scope.data.bounds.byLevel;
+          if (byLevel[unprojected]) {
+            drawCircle(unprojected, byLevel[unprojected].length)
+          }
+        });
 
         render();
 
         scope.watch("data", render);
         scope.watch("bounds", render);
+        window.addEventListener("resize", render);
       }
     }
   })

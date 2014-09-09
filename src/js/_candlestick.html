@@ -1,28 +1,18 @@
 <div class="candlestick">
   <div class="info">
     <h2 class="name">{{data.name}}</h2>
-    <p>
-      {{data.tests.length}} tests for {{data.bounds.patients}} employees,
-      from {{data.bounds.start | date:"M/yy"}} to {{data.bounds.end | date:"M/yy"}}
+    <p class="metadata">
+      <span class="highlight tests">{{data.tests.length}} tests</span> for <span class="highlight employees">{{data.bounds.patients}} employees</span>
+      <br>
+      Over 
+      <span ng-if="data.bounds.duration.years">
+        <span class="highlight years">{{data.bounds.duration.years}} years</span>,
+      </span>
+      <span class="highlight months">{{data.bounds.duration.months}} months</span>
+      <br>
+      ({{data.bounds.start | date:"M/yy"}} to {{data.bounds.end | date:"M/yy"}})
   </div>
   <div class="candlestick-area">
-    <!-- <div
-      class="bar employer-{{data.employerID}}"
-      ng-style="{
-        width: transformed.width * 100 + '%',
-        left: transformed.left * 100 + '%'
-      }"
-    >
-      <span class="before">{{data.bounds.min}}</span>
-      <span class="after">{{data.bounds.max}}</span>
-      <span 
-        class="slice"
-        ng-mouseenter="enteredSlice(slice.test)"
-        ng-repeat="slice in transformed.tests"
-        ng-style="{
-          left: slice.left * 100 + '%'
-        }"></span>
-    </div> -->
     <canvas-bar></canvas-bar>
   </div>
 </div>
