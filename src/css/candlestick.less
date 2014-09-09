@@ -2,28 +2,34 @@
 
 .candlestick {
 
+  @mobile: ~"(max-width: 800px)";
+
   width: 100%;
   overflow: auto; //triggers correct clearance
+  padding: 4px 0;
 
   .info {
-    width: 20%;
-    float: left;
-    padding: 8px;
-    background: rgba(255, 255, 255, .8);
-
-    @media @mobile {
-      display: block;
-      float: none;
-      width: 100%;
-    }
+    display: block;
+    background: white; //rgba(255, 255, 255, .8);
 
     h2 {
       margin: 0;
       padding: 0;
       font-size: 16px;
+      display: inline-block;
 
       @media @mobile {
         font-size: 13px;
+      }
+    }
+
+    .metadata {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+
+      @media @mobile {
+        display: block;
       }
     }
 
@@ -35,16 +41,7 @@
   }
 
   .candlestick-area {
-
-    float: left;
-    width: 80%;
-    padding: 8px 0;
-
-    @media @mobile {
-      display: block;
-      float: none;
-      width: 100%;
-    }
+    display: block;
 
     .bar {
       @bar-color: #333;

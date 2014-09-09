@@ -8,28 +8,9 @@ boundary-line {
   right: 0;
   z-index: -1;
 
-  .spacer {
-    width: 20%;
-    display: block;
-    float: left;
-    height: 100%;
-
-    @media @mobile {
-      float: none;
-      display: none;
-    }
-  }
-
   .container {
-    width: 80%;
     height: 100%;
-    float: left;
     display: block;
-
-    @media @mobile {
-      float: none;
-      width: 100%;
-    }
   }
 
   .color {
@@ -72,6 +53,13 @@ boundary-line {
       border-color: @worst;
       &::before {
         content: "60 mg/dal";
+      }
+    }
+
+    &.at-120 {
+      border-color: darken(@worst, 40%);
+      &::before {
+        content: "120 mg/dal";
       }
     }
   }

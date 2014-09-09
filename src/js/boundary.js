@@ -5,7 +5,7 @@ define([
   app.directive("boundaryLine", function() {
     return {
       restrict: "E",
-      template: "<span class=spacer></span><span class=container><div class=color></div></span>",
+      template: "<span class=container><div class=color></div></span>",
       scope: {
         bounds: "=",
         level: "@"
