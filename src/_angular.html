@@ -7,11 +7,6 @@
       <candle-stick data="result" bounds="chartBounds">
         {{notes[result.name]}}
       </candle-stick>
-      <section class="children" ng-if="result.known">
-        <candle-stick ng-repeat="known in result.known" data="known" bounds="chartBounds">
-          {{notes[result.name]}}
-        </candle-stick>
-      </section>
     </li>
   </ul>
 </main>

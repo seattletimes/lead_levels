@@ -45,8 +45,8 @@ module.exports = function(grunt) {
 
   var nonanon = {
     //list known people here
-    20121127004: "Romo",
-    20080825001: "Sanchez"
+    // 20121127004: "Romo",
+    // 20080825001: "Sanchez"
   }
 
   //locate all "special" results in each employer

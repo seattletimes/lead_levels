@@ -1,6 +1,7 @@
 define([
   "application",
-  "text!_candlestick.html"
+  "text!_candlestick.html",
+  "canvasBar"
 ], function(app, template) {
   
   app.directive("candleStick", function() {

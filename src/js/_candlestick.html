@@ -1,10 +1,12 @@
 <div class="candlestick">
   <div class="info">
     <h2 class="name">{{data.name}}</h2>
-    <div class="notes" ng-transclude></div>
+    <p>
+      {{data.tests.length}} tests for {{data.bounds.patients}} employees,
+      from {{data.bounds.start | date:"M/yy"}} to {{data.bounds.end | date:"M/yy"}}
   </div>
   <div class="candlestick-area">
-    <div
+    <!-- <div
       class="bar employer-{{data.employerID}}"
       ng-style="{
         width: transformed.width * 100 + '%',
@@ -20,6 +22,7 @@
         ng-style="{
           left: slice.left * 100 + '%'
         }"></span>
-    </div>
+    </div> -->
+    <canvas-bar></canvas-bar>
   </div>
 </div>
