@@ -13,9 +13,21 @@ define([
 
     $scope.chartBounds = {
       min: 0,
-      max: 170
+      max: 155
     };
 
   }]);
+
+  app.directive("log", function() {
+    return {
+      restrict: "A",
+      scope: {
+        statement: "="
+      },
+      link: function(scope, element, attr) {
+        console.log(attr);
+      }
+    }
+  })
 
 });

@@ -4,7 +4,7 @@
   <boundary-line level="25" bounds="chartBounds"></boundary-line>
   <boundary-line level="10" bounds="chartBounds"></boundary-line> -->
   <ul>
-    <li class="candlestick-row" ng-repeat="result in results" >
+    <li class="candlestick-row" ng-repeat="result in results | orderBy:'-tests.length'">
       <candle-stick data="result" bounds="chartBounds">
         {{notes[result.name]}}
       </candle-stick>

@@ -20,11 +20,14 @@ define(function() {
     results[id].tests.push(row);
   });
 
+  var asArray = [];
+  
   Object.keys(results).forEach(function(key) {
     results[key].bounds = findBounds(results[key]);
+    asArray.push(results[key]);
   });
 
-  return results;
+  return asArray;
 
   function findBounds(set) {
     var values = [];

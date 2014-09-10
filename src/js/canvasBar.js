@@ -39,24 +39,25 @@ define([
           var boundaries = [
             {value: 10, color: "#F88"},
             {value: 25, color: "#F66"},
+            //{value: 40, color: "#F55"},
             {value: 60, color: "#F44"},
-            {value: 120, color: "#C11"}
+            // {value: 120, color: "#C11"}
           ];
 
-          context.save();
-          context.translate(0, canvas.height);
-          context.rotate(-Math.PI / 2);
-          boundaries.forEach(function(line) {
+          // context.save();
+          // context.translate(0, canvas.height);
+          // context.rotate(-Math.PI / 2);
+          boundaries.forEach(function(line, i) {
             var x = (line.value - scope.bounds.min) / range * canvas.width;
             context.beginPath();
-            context.moveTo(0, x);
-            context.lineTo(canvas.height, x);
+            context.moveTo(x, 0);
+            context.lineTo(x, canvas.height);
             context.strokeStyle = line.color;
             context.stroke();
             context.fillStyle = "black";
-            context.fillText(line.value + " mg/dal", 0, x - 2);
+            context.fillText(line.value + (!i ? " mg/dal" : ""), x + 2, canvas.height - 4);
           })
-          context.restore();
+          // context.restore();
 
 
           //draw circles
