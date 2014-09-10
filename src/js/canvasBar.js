@@ -3,6 +3,15 @@ define([
   "popup",
   "text!_popup.html"
 ], function(app, popup, pTemplate) {
+  
+  var easeBounce = function(delta) {
+    var squared = delta*delta;
+    var cubed = squared*delta;
+    return 33*Math.pow(delta, 5) + -106*Math.pow(delta, 4) + 126*Math.pow(delta, 3) + -67*Math.pow(delta, 2) + 15*delta;
+  }
+
+  var raf = window.requestAnimationFrame || function(f) { setTimeout(f, 16) };
+
   app.directive("canvasBar", function() {
     return {
       restrict: "E",
@@ -15,8 +24,9 @@ define([
           var radii = [0, 6, 12, 16, 20, 24, 28, 32]
           var range = scope.bounds.max - scope.bounds.min;
           var projected = (level - scope.bounds.min) / range * canvas.width;
-          context.strokeStyle = special ? "#522" : "white";
-          if (level >= 60) {
+          if (special) {
+            context.fillStyle = "rgba(80, 80, 200, .6)";
+          } else if (level >= 60) {
             context.fillStyle = "rgba(220, 30, 0, .6)";
           } else if (level >= 25) {
             context.fillStyle = "rgba(180, 100, 40, .6)";
@@ -67,8 +77,8 @@ define([
           context.strokeWidth = 1;
 
           for (var level in levels) {
-            var count = levels[level].length;
             level = level * 1;
+            var count = levels[level].length;
             drawCircle(level, count);
           }
 
