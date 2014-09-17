@@ -51,7 +51,7 @@ define([
             {value: 25, color: "#F66"},
             //{value: 40, color: "#F55"},
             {value: 60, color: "#F44"},
-            // {value: 120, color: "#C11"}
+            {value: 100, color: "#C11"}
           ];
 
           // context.save();

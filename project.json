@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "apps-stage.seattletimesdata.com",
-      "path": "yawning-foe"
+      "path": "prejudicial-transcendency/levels"
     },
     "live": {
       "bucket": "",
