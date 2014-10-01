@@ -47,14 +47,16 @@ define([
 
           //draw and label boundary lines
           var boundaries = [
-            //{value: 10, color: "#F88"},
+
             {value: 10, color: '#DDD'},
-            //{value: 25, color: "#F66"},
             {value: 25, color: '#DDD'},
-            //{value: 60, color: "#F44"},
             {value: 60, color: '#DDD'},
-            //{value: 100, color: "#C11"},
-            {value: 100, color: '#DDD'}
+            {value: 100, color: '#DDD'},
+            //{value: 10, color: "#F88"},
+            //{value: 25, color: "#F66"},
+            //{value: 40, color: "#F55"},
+            //{value: 60, color: "#F44"},
+            //{value: 100, color: "#C11"}
           ];
 
           // context.save();

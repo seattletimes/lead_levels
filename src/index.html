@@ -11,9 +11,15 @@
   <body>
 
     <ul>
-      <li><strong>10 micrograms of lead per deciliter of blood:</strong> CDC considers elevated for the public and can harm adults.
-      <li><strong>25 micrograms per deciliter:</strong> A worker has been overexposed to lead and serious health problems can occur.
-      <li><strong>60 micrograms per deciliter:</strong> Employee must be removed from work area until lead level decreases.
+
+      <li>10 micrograms of lead per deciliter of blood - CDC considers elevated for the public and can harm adults.
+
+      <li>25 micrograms per deciliter - A worker has been overexposed to lead and serious health problems can occur
+
+      <li>60 micrograms per deciliter - Employee must be removed from work area until lead level decreases
+
+      <li>100 micrograms per deciliter - Severe brain and kidney damage can occur
+
     </ul>
 
     <%= t.include("_angular.html") %>
@@ -25,7 +31,7 @@
       </div>
     </div>
 
-    <cite>Source: Center for Disease Control and Prevention, Washington Labor and Industries, Occupational Safety & Health Administration</cite>
+    <cite>Source: Center for Disease Control and Prevention, Washington Labor and Industries, Occupational Safety & Health Administration, U.S. Environmental Protection Agency</cite>
 
     <script>
 var bloodTests = <%= JSON.stringify(csv.levels) %>;
