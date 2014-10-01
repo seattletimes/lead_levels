@@ -12,7 +12,7 @@ define([
     $scope.results = processed;
 
     $scope.chartBounds = {
-      min: 0,
+      min: 8,
       max: 155
     };
 
