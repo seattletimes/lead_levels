@@ -25,13 +25,13 @@ define([
           var range = scope.bounds.max - scope.bounds.min;
           var projected = (level - scope.bounds.min) / range * canvas.width;
           if (special) {
-            context.fillStyle = "rgba(80, 80, 200, .6)";
+            context.fillStyle = "rgba(80, 80, 200, 0.6)";
           } else if (level >= 60) {
-            context.fillStyle = "rgba(220, 30, 0, .6)";
+            context.fillStyle = "rgba(107, 1, 3, 0.8)";
           } else if (level >= 25) {
-            context.fillStyle = "rgba(180, 100, 40, .6)";
+            context.fillStyle = "rgba(194, 26, 1, 0.6)";
           } else {
-            context.fillStyle = "rgba(130, 80, 0, .6)";
+            context.fillStyle = "rgba(240, 60, 2, 0.6)";
           }
           context.beginPath();
           context.arc(projected, canvas.height / 2, radii[count], 0, Math.PI * 2);
@@ -47,11 +47,14 @@ define([
 
           //draw and label boundary lines
           var boundaries = [
-            {value: 10, color: "#F88"},
-            {value: 25, color: "#F66"},
-            //{value: 40, color: "#F55"},
-            {value: 60, color: "#F44"},
-            // {value: 120, color: "#C11"}
+            //{value: 10, color: "#F88"},
+            {value: 10, color: '#DDD'},
+            //{value: 25, color: "#F66"},
+            {value: 25, color: '#DDD'},
+            //{value: 60, color: "#F44"},
+            {value: 60, color: '#DDD'},
+            //{value: 100, color: "#C11"},
+            {value: 100, color: '#DDD'}
           ];
 
           // context.save();

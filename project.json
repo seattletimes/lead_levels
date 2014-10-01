@@ -2,14 +2,14 @@
   "s3": {
     "stage": {
       "bucket": "apps-stage.seattletimesdata.com",
-      "path": "yawning-foe"
+      "path": "prejudicial-transcendency/levels"
     },
     "live": {
       "bucket": "",
       "path": ""
     }
   },
-  "title": "Lead Levels Graphic",
+  "title": "Lead levels graphic",
   "description": "",
   "url": "",
   "slug": "",

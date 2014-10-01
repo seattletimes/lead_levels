@@ -1,16 +1,13 @@
 <div class="candlestick">
   <div class="info">
-    <h2 class="name">{{data.name}}</h2> &bull;
+    <h2 class="name">{{data.name}}</h2>
     <span class="metadata">
-      <span class="highlight tests">{{data.tests.length}} tests</span> for
-      <span class="highlight employees">{{data.bounds.patients}} employee<span ng-if="data.bounds.patients > 1">s</span></span>
+      <!--<span class="highlight">{{data.tests.length}} tests for {{data.bounds.patients}} <i class="fa fa-user" title="{{data.bounds.patients}} employee(s)"></i></span>-->
 
-      <br>
-      <!--<span ng-if="data.bounds.duration.years">
-        <span class="highlight years">{{data.bounds.duration.years}} years</span>,
-      </span>
-      <span class="highlight months">{{data.bounds.duration.months}} months</span>-->
-      ({{data.bounds.start | date:"MMM. yyyy"}} to {{data.bounds.end | date:"MMM. yyyy"}})
+      <span class="duration">{{data.bounds.start | date:"MMM yyyy"}} &mdash; {{data.bounds.end | date:"MMM yyyy"}}</span>
+
+
+      <span class="highlight">{{data.tests.length}} tests for {{data.bounds.patients}} <i class="fa fa-user" title="{{data.bounds.patients}} employee(s)"></i></span>
     </span>
   </div>
   <div class="candlestick-area">
