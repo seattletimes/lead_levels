@@ -13,6 +13,6 @@ require([
   //hack hack hack
   child.id = "lead-levels";
 
-  angular.bootstrap(document.body, [app.name])
+  angular.bootstrap(document.body, [app.name]);
 
 });

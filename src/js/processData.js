@@ -8,7 +8,7 @@ define(function() {
     var employer = row.employer;
     if (row.wadesRelated && row.employerID != 1390) {
       id = "1390c";
-      employer = "Wade's Contractors";
+      employer = "Contractors for Wade's";
     }
     if (!results[id]) {
       results[id] = {
@@ -83,7 +83,7 @@ define(function() {
         months: months
       },
       byLevel: byLevel
-    }
+    };
   }
 
 });

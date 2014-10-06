@@ -9,7 +9,18 @@ define([
       process data - should probably break out into a new module at some point
     */
 
-    $scope.results = processed;
+    var all = processed;
+
+    var shortened = processed.filter(function(resultSet) {
+      return resultSet.id == 1390 || resultSet.id == "1390c";
+    });
+    $scope.results = shortened;
+    $scope.truncated = true;
+
+    $scope.showToggle = function() {
+      $scope.results = $scope.truncated ? all : shortened;
+      $scope.truncated = !$scope.truncated;
+    };
 
     $scope.chartBounds = {
       min: 8,
@@ -27,7 +38,7 @@ define([
       link: function(scope, element, attr) {
         console.log(attr);
       }
-    }
-  })
+    };
+  });
 
 });
