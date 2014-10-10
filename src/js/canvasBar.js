@@ -5,10 +5,8 @@ define([
 ], function(app, popup, pTemplate) {
   
   var easeBounce = function(delta) {
-    var squared = delta*delta;
-    var cubed = squared*delta;
     return 33*Math.pow(delta, 5) + -106*Math.pow(delta, 4) + 126*Math.pow(delta, 3) + -67*Math.pow(delta, 2) + 15*delta;
-  }
+  };
 
   var raf = window.requestAnimationFrame || function(f) { setTimeout(f, 16) };
 
@@ -21,7 +19,7 @@ define([
         var context = canvas.getContext("2d");
 
         var drawCircle = function(level, count, special) {
-          var radii = [0, 6, 12, 16, 20, 24, 28, 32]
+          var radii = [0, 6, 12, 16, 20, 24, 28, 32];
           var range = scope.bounds.max - scope.bounds.min;
           var projected = (level - scope.bounds.min) / range * canvas.width;
           if (special) {
@@ -37,7 +35,7 @@ define([
           context.arc(projected, canvas.height / 2, radii[count], 0, Math.PI * 2);
           context.fill();
           context.stroke();
-        }
+        };
 
         var render = function() {
           canvas.height = canvas.offsetHeight;
@@ -70,8 +68,8 @@ define([
             context.strokeStyle = line.color;
             context.stroke();
             context.fillStyle = "black";
-            context.fillText(line.value + (!i ? " mg/dal" : ""), x + 2, canvas.height - 4);
-          })
+            context.fillText(line.value + (!i ? " mg/dl" : ""), x + 2, canvas.height - 4);
+          });
           // context.restore();
 
 
