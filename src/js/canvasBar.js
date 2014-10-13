@@ -4,12 +4,6 @@ define([
   "text!_popup.html"
 ], function(app, popup, pTemplate) {
   
-  var easeBounce = function(delta) {
-    return 33*Math.pow(delta, 5) + -106*Math.pow(delta, 4) + 126*Math.pow(delta, 3) + -67*Math.pow(delta, 2) + 15*delta;
-  };
-
-  var raf = window.requestAnimationFrame || function(f) { setTimeout(f, 16) };
-
   app.directive("canvasBar", function() {
     return {
       restrict: "E",
@@ -46,10 +40,10 @@ define([
           //draw and label boundary lines
           var boundaries = [
 
-            {value: 10, color: '#DDD'},
-            {value: 25, color: '#DDD'},
-            {value: 60, color: '#DDD'},
-            {value: 100, color: '#DDD'},
+            {value: 10, color: '#BBB'},
+            {value: 25, color: '#BBB'},
+            {value: 60, color: '#BBB'},
+            {value: 100, color: '#BBB'},
             //{value: 10, color: "#F88"},
             //{value: 25, color: "#F66"},
             //{value: 40, color: "#F55"},
@@ -68,7 +62,12 @@ define([
             context.strokeStyle = line.color;
             context.stroke();
             context.fillStyle = "black";
-            context.fillText(line.value + (!i ? " mg/dl" : ""), x + 2, canvas.height - 4);
+            if (!i) {
+              context.fillText(line.value, x + 2, canvas.height - 4);
+              //context.fillText("mg/dl", x + 2, canvas.height - 4);
+            } else {
+              context.fillText(line.value, x + 2, canvas.height - 4);
+            }
           });
           // context.restore();
 
@@ -108,7 +107,7 @@ define([
           if (byLevel[level]) {
             var length = byLevel[level].length;
             drawCircle(level, length, true);
-            var content = pTemplate.replace("%level%", level).replace("%count%", length)
+            var content = pTemplate.replace("%level%", level).replace("%count%", length);
             popup.show(content, e.pageX, e.pageY);
           } else {
             popup.hide();
@@ -126,6 +125,6 @@ define([
         scope.$watch("bounds", render);
         window.addEventListener("resize", render);
       }
-    }
-  })
-})
+    };
+  });
+});

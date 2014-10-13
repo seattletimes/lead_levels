@@ -27,6 +27,8 @@ define([
       max: 155
     };
 
+    $scope.notInspected = ["1154", "1351", "1375"];
+
   }]);
 
   app.directive("log", function() {

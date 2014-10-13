@@ -11,7 +11,8 @@ define([
       transclude: true,
       scope: {
         data: "=",
-        bounds: "="
+        bounds: "=",
+        badge: "="
       }
     }
   });
