@@ -12,7 +12,8 @@ define([
       scope: {
         data: "=",
         bounds: "=",
-        badge: "="
+        badge: "=",
+        inactive: "="
       }
     }
   });

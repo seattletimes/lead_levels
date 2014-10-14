@@ -1,7 +1,7 @@
 <main class="viz" ng-controller="resultController">
   <ul>
     <li class="candlestick-row" ng-repeat="result in results | orderBy:'-tests.length'">
-      <candle-stick data="result" bounds="chartBounds" badge="notInspected">
+      <candle-stick data="result" bounds="chartBounds" badge="notInspected" inactive="inactive">
         {{notes[result.name]}}
       </candle-stick>
     </li>

@@ -6,14 +6,17 @@ define(function() {
   window.bloodTests.forEach(function(row) {
     var id = row.employerID;
     var employer = row.employer;
+    var caveat = null;
     if (row.wadesRelated && row.employerID != 1390) {
       id = "1390c";
-      employer = "Contractors for Wade's";
+      employer = "Construction workers at Wade's";
+      caveat = "Not all workers may be accounted for in these results.";
     }
     if (!results[id]) {
       results[id] = {
         tests: [],
         id: id,
+        caveat: caveat,
         name: employer
       };
     }
