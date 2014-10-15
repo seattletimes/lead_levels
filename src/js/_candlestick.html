@@ -5,7 +5,7 @@
       <span ng-if="data.caveat">*</span>
     </h2>
     <span class="badge" ng-if="badge.indexOf(data.id) > -1">Never Inspected</span>
-    <p class="caveat" ng-if="data.caveat">* {{data.caveat}}<p>
+    <p class="caveat" ng-if="data.caveat">* {{data.caveat}}</p>
     <p class="metadata">
 
       <span class="highlight">{{data.tests.length}} tests for {{data.bounds.patients}} employee<span ng-if="data.bounds.patients > 1">s</span></span>
