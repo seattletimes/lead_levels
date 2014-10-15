@@ -28,7 +28,7 @@ define([
     };
 
     $scope.notInspected = ["1154", "1351", "1375"];
-    $scope.inactive = ["1375", "1351"];
+    $scope.inactive = ["1375", "1351", "1349"];
 
   }]);
 
